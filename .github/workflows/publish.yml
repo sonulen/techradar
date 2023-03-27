@@ -7,8 +7,6 @@ on:
 
 jobs:
   build:
-    env:
-        REACT_APP_RADAR_NAME: 'RMR Technology Radar'
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@master
@@ -22,6 +20,8 @@ jobs:
 
       - name: Build 🔧
         run: PUBLIC_URL=/techradar npm run build:static
+        env:
+          REACT_APP_RADAR_NAME: 'RMR Technology Radar'
 
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@v4.3.0
