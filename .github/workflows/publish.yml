@@ -21,7 +21,7 @@ jobs:
         run: script/addEditLinks.py
 
       - name: Build 🔧
-        run: PUBLIC_URL=/techradar-android npm run build:static
+        run: PUBLIC_URL=/techradar npm run build:static
 
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@v4.3.0
