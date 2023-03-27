@@ -7,6 +7,8 @@ on:
 
 jobs:
   build:
+    env:
+        REACT_APP_RADAR_NAME: 'RMR Technology Radar'
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@master
@@ -19,13 +21,7 @@ jobs:
         run: script/addEditLinks.py
 
       - name: Build 🔧
-        run: PUBLIC_URL=/techradar npx aoe_technology_radar-buildRadar
-
-      - name: Build Static site 🔧
-        run: PUBLIC_URL=/techradar npx aoe_technology_radar-createStaticFiles
-      
-      - name: Generate Data 🔧
-        run: npx aoe_technology_radar-generateJson
+        run: PUBLIC_URL=/techradar npm run build:static
 
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@v4.3.0
