@@ -17,11 +17,8 @@ jobs:
           node-version: "lts/*"
       - run: npm ci
 
-      - name: Pre-build
-        run: script/addEditLinks.py
-
       - name: Build 🔧
-        run: PUBLIC_URL=/techradar-android npm run build:static
+        run: npm run build
 
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@v4.3.0
